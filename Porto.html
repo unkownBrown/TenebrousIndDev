@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tenebrous Indo Games</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#6366f1',
+                            dark: '#4f46e5',
+                        },
+                        dark: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .game-card:hover .game-image {
+            transform: scale(1.05);
+        }
+        .game-image {
+            transition: transform 0.3s ease;
+        }
+        .download-btn {
+            transition: all 0.3s ease;
+        }
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-dark-900 min-h-screen transition-colors duration-300">
+    <!-- Header -->
+    <header class="bg-white dark:bg-dark-800 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-gamepad text-2xl text-primary-light dark:text-primary-dark"></i>
+                <h1 class="text-2xl font-bold text-gray-800 dark:text-white">Tenebrous Indo Games</h1>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark font-medium">Home</a>
+                <a href="#games" class="text-gray-600 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark font-medium">Games</a>
+                <a href="#about" class="text-gray-600 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark font-medium">About</a>
+                <a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark font-medium">Contact</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:block"></i>
+                </button>
+                <button class="md:hidden" id="mobile-menu-button">
+                    <i class="fas fa-bars text-2xl text-gray-700 dark:text-gray-200"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-dark-800 pb-4 px-4">
+            <a href="#" class="block py-2 text-gray-600 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark">Home</a>
+            <a href="#games" class="block py-2 text-gray-600 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark">Games</a>
+            <a href="#about" class="block py-2 text-gray-600 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark">About</a>
+            <a href="#contact" class="block py-2 text-gray-600 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-primary-light to-primary-dark text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Discover Amazing Indonesian Games</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Download and play the best indie games from Indonesian developers</p>
+            <a href="#games" class="inline-block bg-white text-primary-dark font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition duration-300">Explore Games</a>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games" class="py-16 bg-gray-50 dark:bg-dark-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">Featured Games</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Game 1 -->
+                <div class="game-card bg-white dark:bg-dark-800 rounded-lg overflow-hidden shadow-lg">
+                    <div class="overflow-hidden">
+                        <img src="https://via.placeholder.com/600x400?text=Game+1" alt="Game Cover" class="game-image w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-white">Shadow of Java</h3>
+                        <div class="flex items-center mb-4">
+                            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Adventure</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 ml-2">RPG</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Explore the mystical island of Java in this action-packed adventure game with Indonesian folklore elements.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">v1.2.3 • 1.5GB</span>
+                            <button class="download-btn bg-primary-light dark:bg-primary-dark text-white py-2 px-4 rounded-full font-medium" data-game="Shadow of Java" data-version="1.2.3" data-size="1.5GB">
+                                Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game 2 -->
+                <div class="game-card bg-white dark:bg-dark-800 rounded-lg overflow-hidden shadow-lg">
+                    <div class="overflow-hidden">
+                        <img src="https://via.placeholder.com/600x400?text=Game+2" alt="Game Cover" class="game-image w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-white">Bali Runner</h3>
+                        <div class="flex items-center mb-4">
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Casual</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300 ml-2">Endless Runner</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Run through the beautiful landscapes of Bali while avoiding obstacles and collecting coins in this addictive endless runner.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">v2.0.1 • 350MB</span>
+                            <button class="download-btn bg-primary-light dark:bg-primary-dark text-white py-2 px-4 rounded-full font-medium" data-game="Bali Runner" data-version="2.0.1" data-size="350MB">
+                                Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game 3 -->
+                <div class="game-card bg-white dark:bg-dark-800 rounded-lg overflow-hidden shadow-lg">
+                    <div class="overflow-hidden">
+                        <img src="https://via.placeholder.com/600x400?text=Game+3" alt="Game Cover" class="game-image w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-white">Sumatra Survivor</h3>
+                        <div class="flex items-center mb-4">
+                            <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Survival</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 ml-2">Open World</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Survive in the wild jungles of Sumatra, craft tools, hunt for food, and build shelter in this immersive survival game.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">v0.9.5 • 2.8GB</span>
+                            <button class="download-btn bg-primary-light dark:bg-primary-dark text-white py-2 px-4 rounded-full font-medium" data-game="Sumatra Survivor" data-version="0.9.5" data-size="2.8GB">
+                                Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Details Modal -->
+    <div id="game-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white dark:bg-dark-800 rounded-lg max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 id="modal-title" class="text-2xl font-bold text-gray-800 dark:text-white"></h3>
+                    <button id="close-modal" class="text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-100">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <img id="modal-image" src="" alt="Game Cover" class="w-full rounded-lg shadow-md">
+                    </div>
+                    <div>
+                        <div class="mb-4">
+                            <h4 class="font-bold text-gray-700 dark:text-gray-300 mb-2">Game Details</h4>
+                            <ul class="text-gray-600 dark:text-gray-400">
+                                <li class="mb-1"><span class="font-medium">Version:</span> <span id="modal-version"></span></li>
+                                <li class="mb-1"><span class="font-medium">Size:</span> <span id="modal-size"></span></li>
+                                <li class="mb-1"><span class="font-medium">Developer:</span> Tenebrous Studio</li>
+                                <li class="mb-1"><span class="font-medium">Release Date:</span> <span id="modal-date"></span></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-bold text-gray-700 dark:text-gray-300 mb-2">System Requirements</h4>
+                            <ul class="text-gray-600 dark:text-gray-400">
+                                <li class="mb-1">OS: Windows 10 (64-bit)</li>
+                                <li class="mb-1">Processor: Intel Core i5 or equivalent</li>
+                                <li class="mb-1">Memory: 8GB RAM</li>
+                                <li class="mb-1">Graphics: NVIDIA GTX 970 / AMD R9 290</li>
+                                <li class="mb-1">Storage: <span id="modal-storage"></span> available space</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="font-bold text-gray-700 dark:text-gray-300 mb-2">Description</h4>
+                    <p id="modal-description" class="text-gray-600 dark:text-gray-400"></p>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="font-bold text-gray-700 dark:text-gray-300 mb-2">How to Install</h4>
+                    <ol class="list-decimal list-inside text-gray-600 dark:text-gray-400 space-y-2">
+                        <li>Download the game file by clicking the button below</li>
+                        <li>Run the installer executable</li>
+                        <li>Follow the on-screen instructions</li>
+                        <li>Once installed, you can launch the game from your desktop or start menu</li>
+                        <li>Enjoy the game!</li>
+                    </ol>
+                </div>
+                
+                <div class="flex justify-center">
+                    <button id="modal-download" class="bg-primary-light dark:bg-primary-dark text-white py-3 px-8 rounded-full font-medium hover:bg-primary-dark dark:hover:bg-primary-light transition duration-300">
+                        <i class="fas fa-download mr-2"></i> Download Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white dark:bg-dark-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">About Tenebrous Indo Games</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-12">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Our Mission</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Tenebrous Indo Games is dedicated to showcasing the best indie games from Indonesian developers. 
+                            We provide a platform for talented creators to share their work with gamers worldwide.
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Our goal is to promote Indonesian game development and help local developers reach a global audience.
+                        </p>
+                    </div>
+                    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
+                        <img src="https://via.placeholder.com/500x300?text=Game+Development" alt="Game Development" class="w-full rounded-lg">
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="order-2 md:order-1">
+                        <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
+                            <img src="https://via.placeholder.com/500x300?text=Indonesian+Culture" alt="Indonesian Culture" class="w-full rounded-lg">
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Indonesian Culture in Games</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Many of our games incorporate elements of Indonesian culture, folklore, and landscapes. 
+                            From the mystical temples of Java to the beautiful beaches of Bali, our games bring Indonesia to life.
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            We believe games can be a powerful medium for sharing culture and telling unique stories.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50 dark:bg-dark-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">Contact Us</h2>
+            
+            <div class="max-w-2xl mx-auto bg-white dark:bg-dark-800 rounded-lg shadow-lg p-8">
+                <form id="contact-form">
+                    <div class="mb-6">
+                        <label for="name" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Your Name</label>
+                        <input type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-light focus:border-primary-light block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-dark dark:focus:border-primary-dark" placeholder="John Doe" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Your Email</label>
+                        <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-light focus:border-primary-light block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-dark dark:focus:border-primary-dark" placeholder="name@example.com" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="subject" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Subject</label>
+                        <input type="text" id="subject" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-light focus:border-primary-light block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-dark dark:focus:border-primary-dark" placeholder="Let us know how we can help you" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Your Message</label>
+                        <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-light focus:border-primary-light dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-dark dark:focus:border-primary-dark" placeholder="Write your message here..."></textarea>
+                    </div>
+                    <button type="submit" class="bg-primary-light dark:bg-primary-dark text-white py-3 px-6 rounded-lg font-medium hover:bg-primary-dark dark:hover:bg-primary-light transition duration-300">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-dark-800 border-t border-gray-200 dark:border-gray-700">
+        <div class="container mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-gray-800 dark:text-white">Tenebrous Indo Games</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        The best platform for Indonesian indie games. Discover, download, and play amazing games from local developers.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-gray-800 dark:text-white">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark">Home</a></li>
+                        <li><a href="#games" class="text-gray-600 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark">Games</a></li>
+                        <li><a href="#about" class="text-gray-600 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark">About</a></li>
+                        <li><a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-gray-800 dark:text-white">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-gray-800 dark:text-white">Connect With Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark text-xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark text-xl"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark text-xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark text-xl"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 dark:border-gray-700 mt-8 pt-8 text-center text-gray-500 dark:text-gray-400">
+                <p>© 2023 Tenebrous Indo Games. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Download Toast Notification -->
+    <div id="download-toast" class="fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 flex items-center">
+        <i class="fas fa-check-circle mr-2"></i>
+        <span id="toast-message">Download started!</span>
+    </div>
+
+    <script>
+        // Dark/Light Mode Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        // Check for saved user preference or use system preference
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Game Modal
+        const gameModal = document.getElementById('game-modal');
+        const closeModal = document.getElementById('close-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalImage = document.getElementById('modal-image');
+        const modalVersion = document.getElementById('modal-version');
+        const modalSize = document.getElementById('modal-size');
+        const modalDate = document.getElementById('modal-date');
+        const modalStorage = document.getElementById('modal-storage');
+        const modalDescription = document.getElementById('modal-description');
+        const modalDownload = document.getElementById('modal-download');
+        const downloadButtons = document.querySelectorAll('.download-btn');
+
+        // Game data
+        const games = {
+            "Shadow of Java": {
+                image: "https://via.placeholder.com/800x500?text=Shadow+of+Java",
+                version: "1.2.3",
+                size: "1.5GB",
+                date: "March 15, 2023",
+                storage: "3GB",
+                description: "Embark on an epic journey through the mystical island of Java, inspired by Indonesian folklore. Play as a young warrior who must uncover the secrets of ancient temples and battle mythical creatures to save your village from darkness."
+            },
+            "Bali Runner": {
+                image: "https://via.placeholder.com/800x500?text=Bali+Runner",
+                version: "2.0.1",
+                size: "350MB",
+                date: "January 5, 2023",
+                storage: "500MB",
+                description: "Run through the stunning landscapes of Bali in this addictive endless runner. Dodge obstacles, collect coins, and unlock new characters inspired by Balinese culture. Perfect for quick gaming sessions with beautiful visuals."
+            },
+            "Sumatra Survivor": {
+                image: "https://via.placeholder.com/800x500?text=Sumatra+Survivor",
+                version: "0.9.5",
+                size: "2.8GB",
+                date: "April 22, 2023",
+                storage: "5GB",
+                description: "Test your survival skills in the wild jungles of Sumatra. Craft tools, hunt for food, build shelter, and face the dangers of the rainforest in this immersive survival experience. Based on real Sumatran wilderness and wildlife."
+            }
+        };
+
+        downloadButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const gameName = button.getAttribute('data-game');
+                const game = games[gameName];
+                
+                modalTitle.textContent = gameName;
+                modalImage.src = game.image;
+                modalVersion.textContent = game.version;
+                modalSize.textContent = game.size;
+                modalDate.textContent = game.date;
+                modalStorage.textContent = game.storage;
+                modalDescription.textContent = game.description;
+                
+                // Set download button to trigger the same download function
+                modalDownload.onclick = () => startDownload(gameName, game.version, game.size);
+                
+                gameModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
+            gameModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close modal when clicking outside
+        gameModal.addEventListener('click', (e) => {
+            if (e.target === gameModal) {
+                gameModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Download function
+        function startDownload(gameName, version, size) {
+            const toast = document.getElementById('download-toast');
+            const toastMessage = document.getElementById('toast-message');
+            
+            toastMessage.textContent = `Starting download: ${gameName} (${version}, ${size})`;
+            
+            // Show toast
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            
+            // Hide toast after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+            
+            // In a real app, you would initiate the actual download here
+            console.log(`Downloading ${gameName} v${version} (${size})`);
+            
+            // Close modal
+            gameModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Contact form submission
+        const contactForm = document.getElementById('contact-form');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // In a real app, you would send this data to your server
+            console.log('Form submitted:', { name, email, subject, message });
+            
+            // Show success message
+            const toast = document.getElementById('download-toast');
+            const toastMessage = document.getElementById('toast-message');
+            
+            toast.classList.remove('bg-green-500');
+            toast.classList.add('bg-blue-500');
+            toastMessage.textContent = 'Message sent successfully!';
+            
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            
+            // Hide toast after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+            
+            // Reset form
+            contactForm.reset();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
